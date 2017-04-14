@@ -1,1 +1,1 @@
-var myApp = angular.module('myApp', ['mainController', 'commentService']);
+var myApp = angular.module('myApp', ['mainController', 'loginService']);

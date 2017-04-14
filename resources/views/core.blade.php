@@ -17,6 +17,11 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script> <!-- load angular -->
 
+    <script src="js/controllers/mainController.js"></script> <!-- load our controller -->
+    <script src="js/services/loginService.js"></script> <!-- load our service -->
+    <script src="js/app.js"></script> <!-- load our application -->
+    
+
     <!-- Custom CSS -->
     <style>
     body {

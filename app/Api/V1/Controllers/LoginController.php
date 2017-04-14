@@ -8,18 +8,24 @@ use App\Http\Controllers\Controller;
 use App\Api\V1\Requests\LoginRequest;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Log;
 
 class LoginController extends Controller
 {
     public function login(LoginRequest $request, JWTAuth $JWTAuth)
     {
+       
         $credentials = $request->only(['email', 'password']);
 
         try {
             $token = $JWTAuth->attempt($credentials);
 
             if (!$token) {
-                throw new AccessDeniedHttpException();
+                return response()
+                    ->json([
+                        'status' => false,
+                        'message' => 'No such user',
+                    ]);
             }
 
         } catch (JWTException $e) {
