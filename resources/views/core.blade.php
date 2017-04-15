@@ -15,11 +15,14 @@
     <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script> <!-- load angular -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
 
-    <script src="js/controllers/mainController.js"></script> <!-- load our controller -->
-    <script src="js/services/loginService.js"></script> <!-- load our service -->
     <script src="js/app.js"></script> <!-- load our application -->
+    <script src="js/services/AuthenticationService.js"></script> <!-- load our service -->
+    <script src="js/controllers/mainController.js"></script> <!-- load our controller -->
     
 
     <!-- Custom CSS -->
@@ -39,7 +42,7 @@
 
 </head>
 
-<body ng-app="myApp" ng-controller="mainController">
+<body ng-app="myApp" >
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -76,6 +79,7 @@
     <!-- Page Content -->
     <div class="container">
     @yield('content')
+        <ui-view></ui-view>
     </div>
 
     </div>

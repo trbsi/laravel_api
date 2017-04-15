@@ -1,33 +1,34 @@
-angular.module('mainController', [])
-	.controller('mainController', function($scope, $http, Login) {
-		// object to hold all the data for the new comment form
-		$scope.loginData = {};
+(function () {
+	'use strict';
 
+	angular.module('myApp').controller('mainController', Controller);
 
-		// function to handle submitting the form
-		$scope.submitLogin = function() {
-			
-			Login.post($scope.loginData)
-				.success(function(getData) {
-					$scope.comments = getData;
-					console.log(getData);
-				});
-/*
-			// save the comment. pass in comment data from the form
-			Comment.save($scope.commentData)
-				.success(function(data) {
-					$scope.commentData = {};
-					// if successful, we'll need to refresh the comment list
-					Comment.get()
-						.success(function(getData) {
-							$scope.comments = getData;
-							$scope.loading = false;
-						});
+	function Controller($location, AuthenticationService)
+	{
+		var vm = this;
+		vm.login = login;
 
-				})
-				.error(function(data) {
-					console.log(data);
-				});*/
+		//initController();
+
+		function initController()
+		{
+			AuthenticationService.Logout();
 		};
 
-	});
+		function login()
+		{
+			AuthenticationService.Login(vm.email, vm.password, function(result)
+			{
+				if(result == true)
+				{
+					//alert("OK");
+					$location.path("/");
+				}
+				else
+				{
+					alert("NOT OK");
+				}
+			});
+		};
+	}
+})();
