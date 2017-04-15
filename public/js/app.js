@@ -40,19 +40,22 @@
  
         // redirect to login page if not logged in and trying to access a restricted page
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
-
         	
             var publicPages = ['/login'];
-
-            if(publicPages.indexOf($location.path()) != -1 && $localStorage.currentUser)
-            {
-            	$location.path('/');
-            }
 
             var restrictedPage = publicPages.indexOf($location.path()) === -1;
             if (restrictedPage && !$localStorage.currentUser) {
                 $location.path('/login');
             }
         });
+
+        $rootScope.returnUser = function() 
+        {
+        	if($localStorage.currentUser)
+        		return $localStorage.currentUser.email;
+
+        	return '';
+        }
+
     }
 })();

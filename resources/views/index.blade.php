@@ -61,8 +61,11 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
+                    <li ng-if="returnUser() == ''">
                         <a href="#/login">Login</a>
+                    </li>
+                    <li ng-if="returnUser() != ''">
+                        <a href="#/login">Logout</a>
                     </li>
                     <li>
                         <a href="#">Services</a>
@@ -72,7 +75,7 @@
                     </li>
                 </ul>
 
-                 <p class="navbar-text navbar-right">Welcome @{{email}}</p> 
+                 <p class="navbar-text navbar-right">Welcome @{{returnUser()}}</p> 
             </div>
             <!-- /.navbar-collapse -->
 

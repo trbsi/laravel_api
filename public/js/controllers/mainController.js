@@ -8,10 +8,11 @@
 		var vm = this;
 		vm.login = login;
 
-		//initController();
+		initController();
 
 		function initController()
 		{
+
 			AuthenticationService.Logout();
 		};
 
@@ -30,5 +31,6 @@
 				}
 			});
 		};
+
 	}
 })();
