@@ -61,13 +61,16 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">About</a>
+                        <a href="#/login">Login</a>
                     </li>
                     <li>
                         <a href="#">Services</a>
                     </li>
                     <li>
                         <a href="#">Contact</a>
+                    </li>
+                    <li>
+                    Welcome [[email]]
                     </li>
                 </ul>
             </div>

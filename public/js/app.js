@@ -30,9 +30,13 @@
  
     function run($rootScope, $http, $location, $localStorage) {
         // keep user logged in after page refresh
+        $rootScope.email = '?';
         if ($localStorage.currentUser) {
             $http.defaults.headers.common.Authorization = 'Bearer ' + $localStorage.currentUser.token;
+            $rootScope.email = $localStorage.currentUser.email;
         }
+
+
  
         // redirect to login page if not logged in and trying to access a restricted page
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
@@ -42,7 +46,7 @@
 
             if(publicPages.indexOf($location.path()) != -1 && $localStorage.currentUser)
             {
-            	//$location.path('/');
+            	$location.path('/');
             }
 
             var restrictedPage = publicPages.indexOf($location.path()) === -1;
