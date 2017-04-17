@@ -8,14 +8,11 @@
         return service;
 
         function formatErrorResponse(response) {
-            if(response.error)
-            {
+            if (response.error) {
                 var msg = [];
                 var res_tmp = {};
-                angular.forEach(response.error.errors, function(value, key)
-                {
-                    angular.forEach(value, function(message, key)
-                    {
+                angular.forEach(response.error.errors, function (value, key) {
+                    angular.forEach(value, function (message, key) {
                         msg.push(message);
                     });
                 });

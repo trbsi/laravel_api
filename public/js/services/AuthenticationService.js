@@ -22,7 +22,7 @@
         function Login(email, password, callback) {
             $http.post('api/auth/login', {email: email, password: password})
                 .success(function (response) {
-    
+
                     if (response.token) {
                         $localStorage.currentUser = {email: email, token: response.token, role: response.role};
                         $http.defaults.headers.common.Authorization = 'Bearer ' + response.token;
@@ -31,8 +31,7 @@
 
                     callback(response);
                 })
-                .error(function(response, status)
-                {
+                .error(function (response, status) {
                     response = HelperService.formatErrorResponse(response)
                     response.status = false;
                     callback(response);
@@ -44,14 +43,12 @@
             $http.defaults.headers.common.Authorization = '';
         }
 
-        function Register(params, callback)
-        {
+        function Register(params, callback) {
             $http.post('api/auth/signup', params)
                 .success(function (response) {
                     callback(response);
                 })
-                .error(function(response, status)
-                {
+                .error(function (response, status) {
                     response = HelperService.formatErrorResponse(response)
                     response.status = false;
                     callback(response);

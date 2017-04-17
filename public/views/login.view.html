@@ -2,15 +2,18 @@
     <div class="col-sm-12">
         <form ng-submit="form.$valid && vm.login()" name="form" novalidate>
             <div class="form-group">
-                <input type="email" required class="form-control input-sm" name="email" ng-model="vm.email" placeholder="Email">
+                <input type="email" required class="form-control input-sm" name="email" ng-model="vm.email"
+                       placeholder="Email">
 
-               <div ng-messages="form.$submitted && form.email.$error" class="help-block">
+                <div ng-messages="form.$submitted && form.email.$error" class="help-block">
                     <div ng-message="required">Email is required</div>
                     <div ng-message="email">Enter a valid email.</div>
                 </div>
             </div>
             <div class="form-group">
-                <input type="password" required="" class="form-control input-sm" name="password" ng-model="vm.password" placeholder="Password">
+                <input type="password" required="" class="form-control input-sm" name="password" ng-model="vm.password"
+                       placeholder="Password">
+
                 <div ng-messages="form.$submitted && form.email.$error" class="help-block">
                     <div ng-message="required">Password is required</div>
                 </div>
@@ -31,7 +34,7 @@
                     {{vm.result.message}}
                 </li>
             </ul>
-            
+
         </div>
     </div>
 </div>

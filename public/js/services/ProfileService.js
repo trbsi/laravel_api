@@ -15,6 +15,7 @@
                     callback(response);
                 });
         }
+
         function editProfile(params, callback) {
             $http.post('api/employee/edit', params)
                 .success(function (response) {
@@ -23,7 +24,6 @@
         }
 
 
-        
     }
 
 })();

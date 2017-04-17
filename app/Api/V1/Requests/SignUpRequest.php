@@ -23,11 +23,11 @@ class SignUpRequest extends FormRequest
     public function messages()
     {
         return
-        [
-            'email.required'=>'Email is required',
-            'email.email'=>'Email is required',
-            'password.length'=>'Email is required',
-        ];
+            [
+                'email.required' => 'Email is required',
+                'email.email' => 'Email is required',
+                'password.length' => 'Email is required',
+            ];
     }
 
 

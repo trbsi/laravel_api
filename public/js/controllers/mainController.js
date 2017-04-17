@@ -20,19 +20,16 @@
                 if (result.status == true) {
                     $location.path("/");
                 }
-                else 
-                {
-                    vm.result = result; 
+                else {
+                    vm.result = result;
                 }
             });
         }
 
-        function register()
-        {
+        function register() {
             var params = {email: vm.email, password: vm.password};
-            AuthenticationService.Register(params, function(result)
-            {
-                vm.result = result; 
+            AuthenticationService.Register(params, function (result) {
+                vm.result = result;
             });
         }
 

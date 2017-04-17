@@ -1,38 +1,41 @@
 <div class="row">
     <div class="col-sm-12">
-		<form ng-submit="form.$valid && vm.register()" name="form" novalidate="">
-			<div class="form-group">
-				<input type="email" class="form-control" name="email" placeholder="Email" required ng-model="vm.email">
-				<div ng-messages="form.$submitted && form.email.$error">
-					<div ng-message="required">Email is required</div>
-					<div ng-message="email">This is not valid email</div>			
-				</div>
-			</div>
-			<div class="form-group">
-				<input type="password" class="form-control" name="password" placeholder="Password" required ng-model="vm.password">
-				<div ng-messages="form.$submitted && form.password.$error">
-					<div ng-message="required">Password is required</div>
-				</div>
-			</div>
-			<div class="form-group">
-				<input type="submit" class="btn btn-primary" name="submit" value="Submit">
-			</div>
-		</form>
-	</div>
+        <form ng-submit="form.$valid && vm.register()" name="form" novalidate="">
+            <div class="form-group">
+                <input type="email" class="form-control" name="email" placeholder="Email" required ng-model="vm.email">
+
+                <div ng-messages="form.$submitted && form.email.$error">
+                    <div ng-message="required">Email is required</div>
+                    <div ng-message="email">This is not valid email</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="Password" required
+                       ng-model="vm.password">
+
+                <div ng-messages="form.$submitted && form.password.$error">
+                    <div ng-message="required">Password is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" name="submit" value="Submit">
+            </div>
+        </form>
+    </div>
 </div>
 
 <div class="row">
     <div class="col-sm-12">
-    	<div class="alert alert-danger" ng-show="vm.result.status == false">
-    		<ul>
-    			<li ng-repeat="(key, value) in vm.result.message">
-    				{{value}}
-    			</li>
-    		</ul>
-    		
-    	</div>
-    	<div class="alert alert-success" ng-show="vm.result.status == true">
-    		You can login now!
-    	</div>
+        <div class="alert alert-danger" ng-show="vm.result.status == false">
+            <ul>
+                <li ng-repeat="(key, value) in vm.result.message">
+                    {{value}}
+                </li>
+            </ul>
+
+        </div>
+        <div class="alert alert-success" ng-show="vm.result.status == true">
+            You can login now!
+        </div>
     </div>
 </div>

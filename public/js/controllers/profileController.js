@@ -18,12 +18,10 @@
         function editProfile() {
             var params = {name: vm.profile.name, surname: vm.profile.surname, address: vm.profile.address};
             ProfileService.editProfile(params, function (result) {
-                if(result == true)
-                {
+                if (result == true) {
                     alert("OK");
                 }
-                else
-                {
+                else {
                     alert("NOT OK");
                 }
             });
