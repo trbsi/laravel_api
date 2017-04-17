@@ -13,7 +13,7 @@
             ProfileService.getProfile(function (result) {
                 vm.profile = result;
             });
-        };
+        }
 
         function editProfile() {
             var params = {name: vm.profile.name, surname: vm.profile.surname, address: vm.profile.address};
@@ -27,7 +27,7 @@
                     alert("NOT OK");
                 }
             });
-        };
+        }
 
     }
 })();

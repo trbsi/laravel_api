@@ -27,6 +27,7 @@
     <script src="js/controllers/userController.js"></script> <!-- load our controller -->
     <script src="js/services/ProfileService.js"></script> <!-- load our service -->
     <script src="js/controllers/profileController.js"></script> <!-- load our controller -->
+    <script src="js/services/HelperService.js"></script> <!-- load our service -->
     
     <!-- NG TABLE -->
     <link rel="stylesheet"; href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">

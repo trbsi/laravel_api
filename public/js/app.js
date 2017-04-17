@@ -126,7 +126,7 @@
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
 
             var restrictedPage = publicPagesCheck($location.path());
-            console.log(restrictedPage);
+
             if (restrictedPage && $location.path() != '/register' && !$localStorage.currentUser) {
                 $location.path('/login');
             }

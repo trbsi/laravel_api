@@ -12,7 +12,7 @@
             UserService.getUsers(function (result) {
                 vm.tableParams = new NgTableParams({}, {dataset: result.users});
             });
-        };
+        }
 
         function deleteUser(index, userId) {
             UserService.deleteUser(userId, function (result) {
@@ -20,7 +20,7 @@
                     vm.tableParams.data.splice(index, 1);
                 }
             });
-        };
+        }
 
     }
 })();

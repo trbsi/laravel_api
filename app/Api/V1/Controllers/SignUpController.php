@@ -17,7 +17,9 @@ class SignUpController extends Controller
         $user = new User($request->all());
 
         if (!$user->save()) {
-            throw new HttpException(500);
+            return response()->json([
+                'status' => false
+            ]);
         }
 
         $profile = new Profile();
@@ -26,14 +28,14 @@ class SignUpController extends Controller
 
         if (!Config::get('myconfig.sign_up.release_token')) {
             return response()->json([
-                'status' => 'ok'
-            ], 201);
+                'status' => true
+            ]);
         }
 
         $token = $JWTAuth->fromUser($user);
         return response()->json([
-            'status' => 'ok',
+            'status' => true,
             'token' => $token
-        ], 201);
+        ]);
     }
 }

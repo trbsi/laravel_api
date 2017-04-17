@@ -11,7 +11,7 @@ class SignUpRequest extends FormRequest
     {
         return [
             'email' => 'required|email',
-            'password' => 'required'
+            'password' => 'required|min:6'
         ];
     }
 
@@ -19,4 +19,16 @@ class SignUpRequest extends FormRequest
     {
         return true;
     }
+
+    public function messages()
+    {
+        return
+        [
+            'email.required'=>'Email is required',
+            'email.email'=>'Email is required',
+            'password.length'=>'Email is required',
+        ];
+    }
+
+
 }
