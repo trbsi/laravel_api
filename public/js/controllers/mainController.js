@@ -12,7 +12,6 @@
 
 		function initController()
 		{
-
 			AuthenticationService.Logout();
 		};
 

@@ -23,7 +23,12 @@
     <script src="js/app.js"></script> <!-- load our application -->
     <script src="js/services/AuthenticationService.js"></script> <!-- load our service -->
     <script src="js/controllers/mainController.js"></script> <!-- load our controller -->
+    <script src="js/services/UserService.js"></script> <!-- load our service -->
+    <script src="js/controllers/userController.js"></script> <!-- load our controller -->
     
+    <!-- NG TABLE -->
+    <link rel="stylesheet"; href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">
+    <script src="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.js"></script>
 
     <!-- Custom CSS -->
     <style>
@@ -68,7 +73,7 @@
                         <a href="#/login">Logout</a>
                     </li>
                     <li>
-                        <a href="#">Services</a>
+                        <a href="#/list-users">List users</a>
                     </li>
                     <li>
                         <a href="#">Contact</a>

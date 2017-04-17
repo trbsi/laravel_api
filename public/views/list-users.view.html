@@ -1,0 +1,12 @@
+<table class="table table-bordered table-stripped table-hover" ng-table="vm.tableParams" show-filter="true">
+
+	<tr ng-repeat="(key, value) in $data">
+		<td title="'Email'" filter="{ email: 'text'}" sortable="'email'">{{value.email}}</td>
+		<td title="'Created At'" filter="{ created_at: 'text'}" sortable="'created_at'">{{value.created_at | date}}</td>
+		<td>{{value.profile.name}} {{value.profile.surname}} ({{value.profile.address}})</td>
+		<td>
+			<button ng-click="vm.deleteUser($index, value.id)">Delete</button>
+		</td>
+	</tr>
+
+</table>
