@@ -31,6 +31,12 @@
                 controller: 'userController',
                 controllerAs: 'vm'
             })
+            .state('profile', {
+                url: '/profile',
+                templateUrl: 'views/profile.view.html',
+                controller: 'profileController',
+                controllerAs: 'vm'
+            })
             .state('error', {
                 url: '/error',
                 templateUrl: 'views/error.view.html',

@@ -35,8 +35,6 @@ class ProfileController extends Controller
     public function show()
     {
         $profile = $this->profile->getProfile($this->currentUser->id);
-        return response()->json([
-            $profile
-        ], 201);
+        return response()->json($profile);
     }
 }
