@@ -46,25 +46,51 @@
             $rootScope.email = $localStorage.currentUser.email;
         }
 
-        var routesThatDontRequireAuth = ['/login'];
-        var routesThatForAdmins = ['/list-users'];
+        var publicPages = ['/login'];
+        var routesAll = 
+        [       	
+       		{
+        		url : '/login',
+        		name : 'Logout'
+        	}
+        	
+        ];
+        var routesUser = 
+        [       	
+       		{
+        		url : '/profile',
+        		name : 'Profile'
+        	}
+        	
+        ];
+        var routesAdmin = 
+       	[       	
+       		{
+        		url : '/list-users',
+        		name : 'List users'
+        	}
+        	
+        ];
+        var menu = [];
 
         // check if route does not require authentication
         var routeClean = function (route) {
         }
         // check if route requires admin priviledge
         var routeAdmin = function (route) {
-            if (routesThatForAdmins.indexOf(route) >= 0) {
-                return true;
-            }
+        	var r = false;
+        	angular.forEach(routesAdmin, function(value, key) {
+				if(value.url == route)
+				{
+					r = true;
+				}
+			});
 
-            return false;
+            return r;
         }
 
         // redirect to login page if not logged in and trying to access a restricted page
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
-
-            var publicPages = ['/login'];
 
             var restrictedPage = publicPages.indexOf($location.path()) === -1;
             if (restrictedPage && !$localStorage.currentUser) {
@@ -78,7 +104,22 @@
         });
 
         $rootScope.returnMenu = function () {
-
+        	if ($localStorage.currentUser)
+        	{
+        		//if this is admin
+        		if(AuthenticationService.validateRoleAdmin())
+        		{
+        			return routesAdmin.concat(routesAll);
+        		}
+        		else
+        		{
+        			return routesUser.concat(routesAll);
+        		}
+        	}
+        	else
+        	{
+        		return publicPages;
+        	}
         }
 
         $rootScope.returnUser = function () {
