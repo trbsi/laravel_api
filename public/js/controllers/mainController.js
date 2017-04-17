@@ -1,35 +1,29 @@
 (function () {
-	'use strict';
+    'use strict';
 
-	angular.module('myApp').controller('mainController', Controller);
+    angular.module('myApp').controller('mainController', Controller);
 
-	function Controller($location, AuthenticationService)
-	{
-		var vm = this;
-		vm.login = login;
+    function Controller($location, AuthenticationService) {
+        var vm = this;
+        vm.login = login;
 
-		initController();
+        initController();
 
-		function initController()
-		{
-			AuthenticationService.Logout();
-		};
+        function initController() {
+            AuthenticationService.Logout();
+        };
 
-		function login()
-		{
-			AuthenticationService.Login(vm.email, vm.password, function(result)
-			{
-				if(result == true)
-				{
-					//alert("OK");
-					$location.path("/");
-				}
-				else
-				{
-					alert("NOT OK");
-				}
-			});
-		};
+        function login() {
+            AuthenticationService.Login(vm.email, vm.password, function (result) {
+                if (result == true) {
+                    //alert("OK");
+                    $location.path("/");
+                }
+                else {
+                    alert("NOT OK");
+                }
+            });
+        };
 
-	}
+    }
 })();

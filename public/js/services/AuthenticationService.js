@@ -1,10 +1,8 @@
-(function()
-{
+(function () {
     'use strict';
     angular.module('myApp').factory('AuthenticationService', Service);
 
-    function Service($http, $localStorage)
-    {
+    function Service($http, $localStorage) {
         var adminRoles = [1];
         var otherRoles = ['user'];
 
@@ -20,28 +18,23 @@
             return adminRoles.indexOf($localStorage.currentUser.role) >= 0;
         }
 
-        function Login(email, password, callback)
-        {
+        function Login(email, password, callback) {
             $http.post('api/auth/login', {email: email, password: password})
-            .success(function(response)
-            {
+                .success(function (response) {
 
-                if(response.token)
-                {
-                    $localStorage.currentUser = {email: email, token:response.token, role: response.role};
-                    $http.defaults.headers.common.Authorization = 'Bearer '+response.token;
+                    if (response.token) {
+                        $localStorage.currentUser = {email: email, token: response.token, role: response.role};
+                        $http.defaults.headers.common.Authorization = 'Bearer ' + response.token;
 
-                    callback(true);
-                }
-                else
-                {
-                    callback(false);
-                }
-            });
+                        callback(true);
+                    }
+                    else {
+                        callback(false);
+                    }
+                });
         }
 
-        function Logout()
-        {
+        function Logout() {
             delete $localStorage.currentUser;
             $http.defaults.headers.common.Authorization = '';
         }
