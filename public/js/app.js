@@ -24,6 +24,12 @@
                 templateUrl: 'views/login.view.html',
                 controller: 'mainController',
                 controllerAs: 'vm'
+            }) 
+            .state('register', {
+                url: '/register',
+                templateUrl: 'views/register.view.html',
+                controller: 'mainController',
+                controllerAs: 'vm'
             })
             .state('list-users', {
                 url: '/list-users',
@@ -52,7 +58,19 @@
             $rootScope.email = $localStorage.currentUser.email;
         }
 
-        var publicPages = ['/login'];
+        var publicPages =
+        [       	
+       		{
+        		url : '/login',
+        		name : 'Login'
+        	},
+       		{
+        		url : '/register',
+        		name : 'Register'
+        	}
+        	
+        ];
+
         var routesAll = 
         [       	
        		{
@@ -80,7 +98,16 @@
         var menu = [];
 
         // check if route does not require authentication
-        var routeClean = function (route) {
+        var publicPagesCheck = function (route) {
+        	var r = false;
+        	angular.forEach(publicPages, function(value, key) {
+				if(value.url == route)
+				{
+					r = true;
+				}
+			});
+
+            return r;
         }
         // check if route requires admin priviledge
         var routeAdmin = function (route) {
@@ -98,8 +125,9 @@
         // redirect to login page if not logged in and trying to access a restricted page
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
 
-            var restrictedPage = publicPages.indexOf($location.path()) === -1;
-            if (restrictedPage && !$localStorage.currentUser) {
+            var restrictedPage = publicPagesCheck($location.path());
+            console.log(restrictedPage);
+            if (restrictedPage && $location.path() != '/register' && !$localStorage.currentUser) {
                 $location.path('/login');
             }
             else if (routeAdmin($location.url()) && !AuthenticationService.validateRoleAdmin()) {
