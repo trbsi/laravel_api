@@ -11,15 +11,15 @@
 
         function getUsers(callback) {
             $http.get('api/admin/index')
-                .success(function (response) {
-                    callback(response);
+                .then(function (response) {
+                    callback(response.data);
                 });
         }
 
         function deleteUser(user_id, callback) {
             $http.post('api/admin/destroy', {id: user_id})
-                .success(function (response) {
-                    callback(response.status);
+                .then(function (response) {
+                    callback(response.data.status);
                 });
         }
 

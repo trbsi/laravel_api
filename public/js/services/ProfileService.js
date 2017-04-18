@@ -11,15 +11,18 @@
 
         function getProfile(callback) {
             $http.get('api/employee/show')
-                .success(function (response) {
-                    callback(response);
+                .then(
+                    function (response) {
+                        console.log(response.data);
+                    callback(response.data);
                 });
         }
 
         function editProfile(params, callback) {
             $http.post('api/employee/edit', params)
-                .success(function (response) {
-                    callback(response.status);
+                .then(
+                    function (response) {
+                    callback(response.data.status);
                 });
         }
 
