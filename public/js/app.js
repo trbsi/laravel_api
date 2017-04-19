@@ -33,13 +33,19 @@
             })
             .state('list-users', {
                 url: '/list-users',
-                templateUrl: 'views/list-users.view.html',
+                templateUrl: 'views/admin/list-users.view.html',
+                controller: 'userController',
+                controllerAs: 'vm'
+            })
+            .state('add-user', {
+                url: '/add-user',
+                templateUrl: 'views/admin/add-user.view.html',
                 controller: 'userController',
                 controllerAs: 'vm'
             })
             .state('profile', {
                 url: '/profile',
-                templateUrl: 'views/profile.view.html',
+                templateUrl: 'views/employee/profile.view.html',
                 controller: 'profileController',
                 controllerAs: 'vm'
             })
@@ -89,11 +95,15 @@
         ];
         var routesAdmin = 
        	[       	
-       		{
-        		url : '/list-users',
-        		name : 'List users'
-        	}
-        	
+            {
+                url : '/list-users',
+                name : 'List users'
+            },            
+            {
+                url : '/add-user',
+                name : 'Add user'
+            }
+            
         ];
         var menu = [];
 

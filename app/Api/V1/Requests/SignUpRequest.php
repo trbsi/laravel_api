@@ -10,7 +10,7 @@ class SignUpRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
             'password' => 'required|min:6'
         ];
     }
@@ -26,7 +26,7 @@ class SignUpRequest extends FormRequest
             [
                 'email.required' => 'Email is required',
                 'email.email' => 'Email is required',
-                'password.length' => 'Email is required',
+                'email.unique' => 'Email already exist',
             ];
     }
 

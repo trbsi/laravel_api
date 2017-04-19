@@ -13,7 +13,6 @@
             $http.get('api/employee/show')
                 .then(
                     function (response) {
-                        console.log(response.data);
                     callback(response.data);
                 });
         }

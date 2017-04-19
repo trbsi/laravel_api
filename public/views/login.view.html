@@ -30,11 +30,12 @@
     <div class="col-sm-12">
         <div class="alert alert-danger" ng-show="vm.result.status == false">
             <ul>
-                <li>
-                    {{vm.result.message}}
+                <li ng-repeat="(key, value) in vm.result.message">
+                    {{value}}
                 </li>
             </ul>
 
         </div>
     </div>
 </div>
+

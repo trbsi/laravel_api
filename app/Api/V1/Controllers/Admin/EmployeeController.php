@@ -44,6 +44,9 @@ class EmployeeController extends Controller
 
         $profile = new Profile();
         $profile->user_id = $user->id;
+        $profile->name = $request->name;
+        $profile->surname = $request->surname;
+        $profile->address = $request->address;
         $profile->save();
 
         return response()->json([

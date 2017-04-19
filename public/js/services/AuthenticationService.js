@@ -33,7 +33,6 @@
                 },
                 function (response, status) { //error
                     response = HelperService.formatErrorResponse(response)
-                    response.status = false;
                     callback(response);
                 });
         }
@@ -50,8 +49,7 @@
                     callback(response.data);
                 },
                 function (response, status) { //error
-                    response = HelperService.formatErrorResponse(response.data)
-                    response.status = false;
+                    response = HelperService.formatErrorResponse(response)
                     callback(response);
                 });
         }
